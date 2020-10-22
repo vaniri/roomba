@@ -8,18 +8,23 @@ const App = () => {
   let x = routeObj.initialRoombaLocation[0];
   let y = routeObj.initialRoombaLocation[1];
   const maxX = routeObj.roomDimensions[0];
-  const maxY = routeObj.roomDimensions[1]
+  const maxY = routeObj.roomDimensions[1];
 
   let move = dir => {
         if (dir === "N" && y < maxY - 1) {
-          y++
+          y++;
+          return true;
         } else if (dir === "S" && y > 0) { 
           y--;
+          return true;
         } else if (dir === "W" && x > 0) {
           x--;
-        }else if (dir === "E" && x < maxX - 1) { 
+          return true;
+        } else if (dir === "E" && x < maxX - 1) { 
           x++;
-        }
+          return true;
+        } 
+        return false;
   }
 
   let log = [
@@ -27,9 +32,11 @@ const App = () => {
   ]
   
   routeObj.drivingInstructions.map( dir => {
-    move(dir);
+    let moved = move(dir);
     let prev = log[log.length - 1];
-    let next = {step: prev.step + 1, loc: [x, y], action: dir, totalDirtCollected: 0, totalWallHits: 0};
+    let wallHits = prev.totalWallHits;
+    if (!moved) { wallHits++;}
+    let next = {step: prev.step + 1, loc: [x, y], action: dir, totalDirtCollected: 0, totalWallHits: wallHits};
     log.push(next);
   });
 
