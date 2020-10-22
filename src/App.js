@@ -31,12 +31,19 @@ const App = () => {
     {step: 1, loc: [x, y], action: "", totalDirtCollected: 0, totalWallHits: 0}
   ]
   
+  let hasCollected = () => {
+      return routeObj.dirtLocations.some(el => el[0] === x && el[1] === y);
+
+  }
+
   routeObj.drivingInstructions.map( dir => {
     let moved = move(dir);
     let prev = log[log.length - 1];
     let wallHits = prev.totalWallHits;
-    if (!moved) { wallHits++;}
-    let next = {step: prev.step + 1, loc: [x, y], action: dir, totalDirtCollected: 0, totalWallHits: wallHits};
+    let dirtCollected = prev.totalDirtCollected;
+    if (!moved) { wallHits++; }
+    if (hasCollected()) {dirtCollected++; }
+    let next = {step: prev.step + 1, loc: [x, y], action: dir, totalDirtCollected: dirtCollected, totalWallHits: wallHits};
     log.push(next);
   });
 
