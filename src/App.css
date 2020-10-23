@@ -1,5 +1,4 @@
 .App {
-  text-align: center;
   margin: 20px;
 }
 
@@ -43,6 +42,10 @@ table, th, td {
   padding: 5px
 }
 
+.table {
+  text-align: center;
+}
+
 th {
   color: blue;
 }
@@ -60,7 +63,7 @@ input {
   background-color: #f3f2f2;
   font-size: 15px;
   font-weight: 500;
-  margin: 10px;
+  margin: 5px 0;
   border: 1px solid #ccc;
   border-radius: 12px;
   display: inline-block;
@@ -72,4 +75,10 @@ input {
   background-color: #38383a;
   color: white;
   border-color: #38383a;
+}
+
+.route-info {
+  border-bottom: solid 1px gray;
+  margin: 10px 0;
+    
 }

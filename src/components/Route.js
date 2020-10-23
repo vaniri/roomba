@@ -12,7 +12,13 @@ const Route = ({ input, setLog }) => {
     const maxX = input.roomDimensions[0];
     const maxY = input.roomDimensions[1];
 
-    log.push({ step: 1, loc: [x, y], action: "", totalDirtCollected: 0, totalWallHits: 0 });
+    log.push({ 
+        step: 1, 
+        loc: [x, y], 
+        action: "", 
+        totalDirtCollected: 0, 
+        totalWallHits: 0 
+    });
 
     let move = dir => {
         if (dir === "N" && y < maxY - 1) {
@@ -48,8 +54,8 @@ const Route = ({ input, setLog }) => {
             step: prev.step + 1,
             loc: [x, y],
             action: dir,
-            totalDirtCollected: dirtCollected,
-            totalWallHits: wallHits
+            totalWallHits: wallHits,
+            totalDirtCollected: dirtCollected
         };
 
         log.push(next);

@@ -17,18 +17,17 @@ return (
     <div>
         <form
             className="upload-file-form"
-            onSubmit={handleUpload}
         >
             <label className="btn">
             <input
                 ref={ref}
                 type="file"
                 name="file"
+                onChange={handleUpload}
                 placeholder="upload file"
             />
-                CHOOSE FILE
+                UPLOAD FILE
             </label>
-            <button className="btn">UPLOAD</button>
         </form>
     </div>
 )
