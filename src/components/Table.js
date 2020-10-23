@@ -14,7 +14,7 @@ const Table = ({ log }) => {
                 {log.map(i => (
                     <tr key={i.step}>
                         <td>{i.step}</td>
-                        <td>{i.loc}</td>
+                        <td>{`${i.loc[0]}, ${i.loc[1]}`}</td>
                         <td>{i.action}</td>
                         <td>{i.totalDirtCollected}</td>
                         <td>{i.totalWallHits}</td>
