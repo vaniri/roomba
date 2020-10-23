@@ -8,13 +8,13 @@ import { unstable_renderSubtreeIntoContainer } from 'react-dom';
 
 const App = () => {
 
-const [ log, setLog ] = useState([]);
-const [ input, setInput] = useState(null);
+  const [log, setLog] = useState([]);
+  const [input, setInput] = useState(null);
 
   return (
     <div className="App">
-      <Route setLog={setLog} input={input}/>
-      <Table log={log}/>
+      <Route setLog={setLog} input={input} />
+      <Table log={log} />
       <RouteInfo log={log} />
       <UploadForm setInput={setInput} />
     </div>

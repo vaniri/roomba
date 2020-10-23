@@ -37,9 +37,11 @@
   }
 }
 
-table, th, td {
+table,
+th,
+td {
   border: 1px solid black;
-  padding: 5px
+  padding: 5px;
 }
 
 .table {
@@ -80,5 +82,4 @@ input {
 .route-info {
   border-bottom: solid 1px gray;
   margin: 10px 0;
-    
 }

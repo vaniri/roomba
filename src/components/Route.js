@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 const Route = ({ input, setLog }) => {
     let log = [];
-    
+
     useEffect(() => setLog(log), [input]);
 
     if (!input) { return <div></div>; }
@@ -12,12 +12,12 @@ const Route = ({ input, setLog }) => {
     const maxX = input.roomDimensions[0];
     const maxY = input.roomDimensions[1];
 
-    log.push({ 
-        step: 1, 
-        loc: [x, y], 
-        action: "", 
-        totalDirtCollected: 0, 
-        totalWallHits: 0 
+    log.push({
+        step: 1,
+        loc: [x, y],
+        action: "",
+        totalDirtCollected: 0,
+        totalWallHits: 0
     });
 
     let move = dir => {
