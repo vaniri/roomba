@@ -26,7 +26,7 @@ return (
                 onChange={handleUpload}
                 placeholder="upload file"
             />
-                UPLOAD FILE
+                <i className="fa fa-cloud-upload"></i> UPLOAD FILE
             </label>
         </form>
     </div>
