@@ -3,7 +3,7 @@ import React from 'react';
 const Table = ({ log }) => {
     return (
         <div>
-            <table>
+            {log.length !== 0 ? <table>
                 <tr>
                     <th>Step</th>
                     <th>Roomba Location</th>
@@ -20,7 +20,8 @@ const Table = ({ log }) => {
                     <td>{i.totalWallHits}</td>
                 </tr>
                 ))}
-            </table>
+            </table> : <div></div>
+            }
         </div>
     )
 }

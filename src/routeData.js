@@ -1,14 +1,14 @@
-let data = {
-    roomDimensions: [10, 10],
-    initialRoombaLocation: [1, 1],
-    dirtLocations: [
+{
+    "roomDimensions": [10, 10],
+    "initialRoombaLocation": [1, 1],
+    "dirtLocations": [
     [1, 2],
     [3, 5],
     [5, 5],
     [7, 9]
     ],
     
-    drivingInstructions: [
+    "drivingInstructions": [
     "N",
     "E",
     "E",
@@ -27,4 +27,3 @@ let data = {
     ]
 }
 
-export default data;

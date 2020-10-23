@@ -1,11 +1,18 @@
 import React, { useEffect } from 'react';
-import routeObj from '../routeData';
 
-const Route = ({ setLog }) => {
-    let x = routeObj.initialRoombaLocation[0];
-    let y = routeObj.initialRoombaLocation[1];
-    const maxX = routeObj.roomDimensions[0];
-    const maxY = routeObj.roomDimensions[1];
+const Route = ({ input, setLog }) => {
+    let log = [];
+    
+    useEffect(() => setLog(log), [input]);
+
+    if (!input) { return <div></div>; }
+
+    let x = input.initialRoombaLocation[0];
+    let y = input.initialRoombaLocation[1];
+    const maxX = input.roomDimensions[0];
+    const maxY = input.roomDimensions[1];
+
+    log.push({ step: 1, loc: [x, y], action: "", totalDirtCollected: 0, totalWallHits: 0 });
 
     let move = dir => {
         if (dir === "N" && y < maxY - 1) {
@@ -25,13 +32,11 @@ const Route = ({ setLog }) => {
     }
 
     let hasCollected = () => {
-        return routeObj.dirtLocations.some(el => el[0] === x && el[1] === y);
+        return input.dirtLocations.some(el => el[0] === x && el[1] === y);
 
     }
 
-    let log = [{ step: 1, loc: [x, y], action: "", totalDirtCollected: 0, totalWallHits: 0 }];
-
-    routeObj.drivingInstructions.map(dir => {
+    input.drivingInstructions.map(dir => {
         let prev = log[log.length - 1];
         let wallHits = prev.totalWallHits;
         let dirtCollected = prev.totalDirtCollected;
@@ -49,8 +54,6 @@ const Route = ({ setLog }) => {
 
         log.push(next);
     });
-
-    useEffect(() => setLog(log), []);
 
     return (
         <div></div>
